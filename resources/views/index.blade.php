@@ -178,24 +178,64 @@
                 </div>
 
                 <div class="flex-container-contact">
-                        <div class="mt-60">
-                                <form id="send" >
-                                        <div id="errorMessage" class="alert alert-warning d-none"></div>
-                                        <input type="text" placeholder="Name" class="form-control mb-20" name="name" />
-                                        <br>
-                                        <input type="text" placeholder="Mobile Number" class="form-control mb-20" name="phonenumber" />
-                                        <br>
-                                        <textarea rows="5" cols="50" placeholder="Message" class="form-control mb-20" name="message"></textarea>
-                                        <br>
-                                        <center><button type="submit" class="btn-theme">Send Inquiry</button> </center>
-                                </form>
-                        </div>
-                        
+                <div class="mt-60">
+                    <form id="contactForm">
+                        <div id="errorMessage" class="alert alert-warning d-none"></div>
+                        <input type="text" placeholder="Name" class="form-control mb-20" name="name" />
+                        <br>
+                        <input type="text" placeholder="Mobile Number" class="form-control mb-20" name="phone_number" />
+                        <br>
+                        <textarea rows="5" cols="50" placeholder="Message" class="form-control mb-20" name="message"></textarea>
+                        <br>
+                        <center><button type="button" onclick="submitForm()" class="btn-theme">Send Inquiry</button></center>
+                    </form>
+                </div>
+                                        
                         <div>
                                 <img src="/assets/images/contact-us/contact-image.png" class="image-contact">
                         </div>
                 </div>
         </div>
 </section>
+
+<script>
+    function submitForm() {
+        var form = document.getElementById('contactForm');
+        var formData = new FormData(form);
+
+        fetch('/api/contact', {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 200) {
+                // Successfully submitted, you can redirect or show a success message
+                alert(data.message);
+            } else if (data.status === 422) {
+                // Validation failed, display errors
+                displayErrors(data.errors);
+            } else {
+                // Other errors, display a general error message
+                alert("Something went wrong!");
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
+    function displayErrors(errors) {
+        var errorMessage = document.getElementById('errorMessage');
+        errorMessage.innerHTML = '';
+
+        for (var field in errors) {
+            errorMessage.innerHTML += '<p>' + errors[field][0] + '</p>';
+        }
+
+        errorMessage.classList.remove('d-none');
+    }
+
+</script>
 
 @include('footer')
