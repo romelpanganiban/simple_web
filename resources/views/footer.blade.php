@@ -9,7 +9,7 @@
             </div>
 
             <div class="col-md-4 col-lg-4 mb-md-0 mb-4 mt-100">
-               <p class="footer-content ml-1 d-inline text-white">Unlock your dream stay with exclusive offers – Reserve now for unbeatable rates and indulge in a world of luxury at MAURIS. Your perfect getaway begins here!  </p>  <br>
+               <p class="footer-content ml-1 d-inline text-white">Unlock your dream stay with exclusive offers – Reserve now for unbeatable rates and indulge in a world of luxury at MAURIS. Your perfect getaway begins here!  </p>   <br><br>
                <ul class="ftco-footer-social p-0 h5">
                   <a class="mr-3" href="#" data-toggle="tooltip" data-placement="top" title="Instagram" class="h5"><i class="bi bi-instagram" style="color: #ffffff;"></i></a>
                   <a class="mr-3" href="#" data-toggle="tooltip" data-placement="top" title="Twitter" class="h5"><i class="bi bi-youtube" style="color: #ffffff;"></i></a>
@@ -49,7 +49,7 @@
    <div class="copyright-area">
                     
          <div class=" text-center mb-sm-0">
-            <p class="copyright-text text-white" style="padding-top: 90px; padding-bottom: 20px;"><b>&copy <script>document.write(new Date().getFullYear()); </script> Bytescrafter Design Template • All rights reserved</b></p>
+            <p class="copyright-text text-white" style="padding-top: 90px; padding-bottom: 20px;"><b>&copy <script>document.write(new Date().getFullYear()); </script> Bytescrafter Design • All rights reserved</b></p>
          </div>
    </div>
 
