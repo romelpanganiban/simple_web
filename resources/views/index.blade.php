@@ -4,7 +4,7 @@
     <div class="container-img">
 
         <div class="about-us-header text-center">
-            <img src="/storage/assets/images/about-us/bed.png" class="mb-20">
+            <img src="storage/assets/images/about-us/bed.png" class="mb-20">
             <h1>REST & RELAX</h1>
             <p class ="p-header">Book your stay with us for a seamless blend of luxury accommodations, exquisite dining, and soothing amenities <br> a perfect escape where every detail is crafted to ensure your ultimate rest and relaxation.</p>
         </div>
@@ -13,7 +13,7 @@
             
             <div class="box">
                 <div class="imgBX">
-                    <img src="/storage/assets/images/about-us/regular-room.png" class="img-about-us-bed">
+                    <img src="storage/assets/images/about-us/regular-room.png" class="img-about-us-bed">
                 </div>
 
                 <div class="content">
@@ -26,7 +26,7 @@
 
             <div class="box">
                 <div class="imgBX">
-                <img src="/storage/assets/images/about-us/vip-room.png" class="img-about-us-bed">
+                <img src="storage/assets/images/about-us/vip-room.png" class="img-about-us-bed">
                 </div>
 
                 <div class="content">
@@ -38,7 +38,7 @@
             
             <div class="box">
                 <div class="imgBX">
-                <img src="/storage/assets/images/about-us/swimming-pool.png" class="img-about-us-bed">
+                <img src="storage/assets/images/about-us/swimming-pool.png" class="img-about-us-bed">
                 </div>
 
                 <div class="content">
@@ -56,7 +56,7 @@
 <section id="service">
     <div class="container-img">
         <div class="services-header text-center">
-            <img src="/storage/assets/images/services/services.png" class="mb-20">
+            <img src="storage/assets/images/services/services.png" class="mb-20">
             <h1>SERVICES</h1>
             <p class ="p-header">indulge in unparalleled comfort with our hotel reservation services, offering a seamless blend of exquisite accommodations, <br> delectable dining at our restaurant, refreshing beverages, and impeccable laundry service <br> all crafted to elevate your stay to a realm of luxury and convenience</p>
         </div>
@@ -66,7 +66,7 @@
             
             <div class="box">
                 <div class="img-service-1">
-                    <img src="/storage/assets/images/services/dining.png" class="img-services">
+                    <img src="storage/assets/images/services/dining.png" class="img-services">
                 </div>
 
                 <div class="content">
@@ -79,7 +79,7 @@
 
             <div class="box" id="box2">
                 <div class="img-service-2">
-                <img src="/storage/assets/images/services/service.png" class="img-services">
+                <img src="storage/assets/images/services/service.png" class="img-services">
                 </div>
 
                 <div class="content">
@@ -91,7 +91,7 @@
             
             <div class="box"  id="box3">
                 <div class="img-service-3">
-                    <img src="/storage/assets/images/services/laundry.png" class="img-services">
+                    <img src="storage/assets/images/services/laundry.png" class="img-services">
                 </div>
 
                 <div class="content">
@@ -107,7 +107,7 @@
 
 <section id="faq">
     <div class="faq-header text-center">
-        <img src="/storage/assets/images/faq/faq.png" class="mb-20">
+        <img src="storage/assets/images/faq/faq.png" class="mb-20">
         <h1 class="mb-40">FREQUENTLY ASKED QUESTIONS</h1>
     </div>
 
@@ -152,7 +152,7 @@
 
 <section id="location">
    <div class="faq-header text-center">
-            <img src="/storage/assets/images/location/location.png" class="mb-20">
+            <img src="storage/assets/images/location/location.png" class="mb-20">
             <h1 class="mb-40">LOCATION</h1>
     </div>
 
@@ -173,7 +173,7 @@
 <section id="contact-us">
         <div class="container-contact mt-70">
                 <div class="contact-header text-center mb-50">
-                        <img src="/storage/assets/images/contact-us/contact.png" class="mb-20">
+                        <img src="storage/assets/images/contact-us/contact.png" class="mb-20">
                         <h1 class="mb-40">CONTACT</h1>
                 </div>
 
@@ -192,7 +192,7 @@
                 </div>
                                         
                         <div>
-                                <img src="/storage/assets/images/contact-us/contact-image.png" class="image-contact">
+                                <img src="storage/assets/images/contact-us/contact-image.png" class="image-contact">
                         </div>
                 </div>
         </div>

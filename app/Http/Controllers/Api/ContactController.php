@@ -11,19 +11,11 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $contact = contact::all();
+        $contacts = contact::all();
 
-        if($contact->count() > 0){
-            return response()->json($data = [
-                'status' => 200,
-                'contact' => $contact
-            ], 200);
-        }else{
-            return response()->json($data = [
-                'status' => 404,
-                'message' => 'No Records Found'
-            ], 404);
-        }
+        return $contacts->count() > 0
+        ? response(['status' => 200, 'contacts' => $contacts], 200)
+        : response(['status' => 404, 'message' => 'No Records Found'], 404);
     }
 
     public function store(Request $request)
@@ -52,6 +44,7 @@ class ContactController extends Controller
             'message' => $contact ? 'Contact Created Successfully' : 'Something went wrong!'
         ], $contact ? 200 : 500);
     }
+
 
     public function show($id)
     {
