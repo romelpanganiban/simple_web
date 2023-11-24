@@ -5,7 +5,7 @@
       <div class="row">
 
             <div class="col-md-2 col-lg-2 mb-md-0 mr-0 mb-4 mt-4">
-            <img src="/assets/images/hotel-logo.jpg" style="width:100px; height:100px;" class="img-logo-f">
+            <img src="/storage/assets/images/hotel-logo.jpg" style="width:100px; height:100px;" class="img-logo-f">
             </div>
 
             <div class="col-md-4 col-lg-4 mb-md-0 mb-4 mt-100">
@@ -49,7 +49,7 @@
    <div class="copyright-area">
                     
          <div class=" text-center mb-sm-0">
-            <p class="copyright-text text-white" style="padding-top: 90px; padding-bottom: 20px;"><b>&copy <script>document.write(new Date().getFullYear()); </script> Bytescrafter Design • All rights reserved</b></p>
+            <p class="copyright-text text-white" style="padding-top: 90px; padding-bottom: 20px;"><b>&copy <script>document.write(new Date().getFullYear()); </script> Bytescrafter • All rights reserved</b></p>
          </div>
    </div>
 

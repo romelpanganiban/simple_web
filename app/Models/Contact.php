@@ -17,3 +17,5 @@ class Contact extends Model
         'message'
     ];
 }
+
+
