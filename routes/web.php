@@ -18,12 +18,16 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/index', function () {
+    return view('contacts.index');
+});
+
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 Route::get('/admin/contact/create', [AdminController::class, 'create'])->name('admin.contact.create');
 Route::post('/admin/contact/store', [AdminController::class, 'store'])->name('admin.contact.store');
 Route::get('/admin/contact/edit/{id}', [AdminController::class, 'edit'])->name('admin.contact.edit');
 Route::post('/admin/contact/update/{id}', [AdminController::class, 'update'])->name('admin.contact.update');
-Route::get('/admin/contact/show/{id}', [AdminController::class, 'show'])->name('admin.contact.show'); // Added line
+Route::get('/admin/contact/show/{id}', [AdminController::class, 'show'])->name('admin.contact.show');
 Route::get('/admin/contact/delete/{id}', [AdminController::class, 'delete'])->name('admin.contact.delete');
 
 

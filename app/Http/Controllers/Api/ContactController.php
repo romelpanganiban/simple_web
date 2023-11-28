@@ -9,101 +9,96 @@ use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
+    protected function validationErrorResponse($validator)
+    {
+        return response()->json(['status' => 422, 'errors' => $validator->messages()->all()], 422);
+    }
+
+    public function responseOnCreate()
+    {
+        return response()->json(['status' => 200, 'message' => 'Contact Created Successfully'], 200);
+    }
+
     public function index()
     {
-        $contacts = contact::all();
+        $contacts = Contact::all();
 
-        return $contacts->count() > 0
-        ? response(['status' => 200, 'contacts' => $contacts], 200)
-        : response(['status' => 404, 'message' => 'No Records Found'], 404);
+        return $contacts->isEmpty()
+            ? response(['status' => 404, 'message' => 'No Records Found'], 404)
+            : response(['status' => 200, 'contacts' => $contacts], 200);
     }
 
     public function store(Request $request)
     {
-        $validate = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:191',
             'phone_number' => 'required|digits:10',
             'message' => 'required|string|max:191',
         ]);
-        
-        if ($validate->fails()) {
-            return response()->json([
-                'status' => 422,
-                'errors' => $validate->messages()
-            ], 422);
-        }
-        
-        $contact = Contact::create([
-            'name' => $request->name,
-            'phone_number' => $request->phone_number,
-            'message' => $request->message,
-        ]);
-        
-        return response()->json([
-            'status' => $contact ? 200 : 500,
-            'message' => $contact ? 'Contact Created Successfully' : 'Something went wrong!'
-        ], $contact ? 200 : 500);
-    }
 
+        if ($validator->fails()) {
+            return $this->validationErrorResponse($validator);
+        }
+
+        Contact::create($request->all());
+        return $this->responseOnCreate();
+    }
 
     public function show($id)
     {
         $contact = Contact::find($id);
+
         return $contact
-        ? response()->json(['status' => 200, 'contact' => $contact], 200)
-        : response()->json(['status' => 404, 'message' => 'No Contact Found!'], 404);
+            ? response()->json(['status' => 200, 'contact' => $contact], 200)
+            : response()->json(['status' => 404, 'message' => 'No Contact Found!'], 404);
     }
 
+    
     public function edit($id)
     {
-        $contact = Contact::find($id);
-
-        return $contact
-        ? response()->json(['status' => 200, 'contact' => $contact], 200)
-        : response()->json(['status' => 404, 'message' => 'No Contact Found!'], 404);
-    }
-
-    public function update(Request $request, int $id)
-{
-    $validate = Validator::make($request->all(), [
-        'name' => 'required|string|max:191',
-        'phone_number' => 'required|digits:10',
-        'message' => 'required|string|max:191',
-    ]);
-
-    if ($validate->fails()) {
-        return response()->json([
-            'status' => 422,
-            'errors' => $validate->messages()
-        ], 422);
-    }
-
     $contact = Contact::find($id);
 
-    if (!$contact) {
-        return response()->json([
-            'status' => 404,
-            'message' => 'No Data Found!'
-        ], 404);
-    }
+    return $contact
+        ? response()->json(['status' => 200, 'contact' => $contact], 200)
+        : response()->json(['status' => 404, 'message' => 'No Contact Found!'], 404);
+    }   
 
-        $contact->update($request->only(['name', 'phone_number', 'message']));
-
-        return response()->json([
-            'status' => 200,
-            'message' => 'Contact updated Successfully'
-        ], 200);
+    public function update(Request $request, int $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:191',
+            'phone_number' => 'required|digits:10',
+            'message' => 'required|string|max:191',
+        ]);
+    
+        if ($validator->fails()) {
+            return response()->json(['status' => 422, 'errors' => $validator->errors()], 422);
+        }
+    
+        $contact = Contact::find($id);
+    
+        if (!$contact) {
+            return response()->json(['status' => 404, 'message' => 'No Data Found!'], 404);
+        }
+    
+        $contact->fill($request->all());
+        $contact->save();
+    
+        return response()->json(['status' => 200, 'message' => 'Contact updated successfully'], 200);
     }
+    
+    
 
     public function destroy($id)
     {
         $contact = Contact::find($id);
-    
-        if ($contact) {
-            $contact->delete();
-            return response()->json(['status' => 200, 'message' => 'Contact Deleted Successfully!'], 200);
+
+        if (!$contact) {
+            return response()->json(['status' => 404, 'message' => 'No Data Found!'], 404);
         }
-    
-        return response()->json(['status' => 404, 'message' => 'No Data Found!'], 404);
+        $contact->delete();
+        return $this->responseOnCreate();
     }
 }
+
+
