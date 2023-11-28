@@ -8,9 +8,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('contact', [ContactController::class, 'index']);
-Route::post('contact', [ContactController::class, 'store']);
-Route::get('contact/{id}', [ContactController::class, 'show']);
-Route::get('contact/{id}/edit', [ContactController::class, 'edit']);
-Route::put('contact/{id}/edit', [ContactController::class, 'update']);
-Route::delete('contact/{id}/delete', [ContactController::class, 'destroy']);
+
+Route::resource('contacts', ContactController::class);
+Route::get('contacts', [ContactController::class, 'index']);
+Route::post('contacts', [ContactController::class, 'store']);
+Route::get('contacts/{id}', [ContactController::class, 'show']);
+Route::get('contacts/{id}/edit', [ContactController::class, 'edit']);
+Route::put('contacts/{id}/edit', [ContactController::class, 'update']);
+Route::delete('contacts/{id}/delete', [ContactController::class, 'destroy']);
